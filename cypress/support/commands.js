@@ -23,7 +23,7 @@ Cypress.Commands.add("toolbarButton", (buttonName) => {
   return cy.get('#toolbar').contains(buttonName);
 });
 
-Cypress.Commands.add("insertPanels", (buttonName) => {
+Cypress.Commands.add("insertPanels", () => {
   return cy.get('#insert-panels');
 });
 
