@@ -32,7 +32,7 @@ Cypress.Commands.add("openFromBrowserDialog", () => {
 });
 
 Cypress.Commands.add("savedGraphs", () => {
-  return cy.get('#open-from-browser-dialog').find('tbody').find('tr');
+  return cy.openFromBrowserDialog().find('tbody').find('tr');
 });
 
 Cypress.Commands.add("savedGraph", (index) => {
