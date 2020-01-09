@@ -31,6 +31,14 @@ Cypress.Commands.add("menuItemRename", () => {
   return cy.get('#main-menu').find('#rename');
 });
 
+Cypress.Commands.add("replaceGraphDialog", () => {
+  return cy.get('#replace-graph-dialog');
+});
+
+Cypress.Commands.add("replaceGraphReplaceButton", () => {
+  return cy.replaceGraphDialog().find('#replace');
+});
+
 Cypress.Commands.add("openButton", () => {
   return cy.get('#toolbar').find('#open');
 });
