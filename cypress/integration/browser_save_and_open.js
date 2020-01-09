@@ -61,7 +61,7 @@ describe('Browser save and open', function() {
     cy.savedGraphPreview(1).should('have.text', '\n\n%0\n\n\n\nAlice\n\nAlice\n\n\n\nBob\n\nBob\n\n\n\nAlice->Bob\n\n\n\n\n');
   })
 
-  it('The DOT source is loaded from a saved graph in browser local storage when to open button is clicked', function() {
+  it('The graph is loaded from a saved graph in browser local storage when to open button is clicked', function() {
     cy.startApplication();
     cy.clearAndRender('digraph {Alice -> Bob}');
 
