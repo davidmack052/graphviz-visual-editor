@@ -343,7 +343,6 @@ describe('Browser save and open', function() {
     cy.savedGraphDotSource(1).should('have.text', 'digraph {Alice -> Bob}');
     cy.savedGraphTime(1).should('have.text', 'a few seconds ago');
     cy.savedGraphPreview(1).should('have.text', '\n\n%0\n\n\n\nAlice\n\nAlice\n\n\n\nBob\n\nBob\n\n\n\nAlice->Bob\n\n\n\n\n');
-
   })
 
 })
