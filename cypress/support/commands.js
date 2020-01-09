@@ -23,6 +23,14 @@ Cypress.Commands.add("toolbarButton", (buttonName) => {
   return cy.get('#toolbar').contains(buttonName);
 });
 
+Cypress.Commands.add("menuButton", () => {
+  return cy.get('#toolbar').find('#menu');
+});
+
+Cypress.Commands.add("menuItemRename", () => {
+  return cy.get('#main-menu').find('#rename');
+});
+
 Cypress.Commands.add("openButton", () => {
   return cy.get('#toolbar').find('#open');
 });
