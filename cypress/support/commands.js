@@ -79,7 +79,7 @@ Cypress.Commands.add("deleteGraphDialog", (index) => {
   return cy.get('#delete-graph-dialog');
 });
 
-Cypress.Commands.add("deleteGraphDialogDeleteButton", () => {
+Cypress.Commands.add("deleteGraphDeleteButton", () => {
   return cy.deleteGraphDialog().find('#delete');
 });
 
