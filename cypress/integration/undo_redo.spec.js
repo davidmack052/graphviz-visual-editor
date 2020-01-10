@@ -2,7 +2,7 @@ describe('Undo and redo of last DOT source change', function() {
 
   it('Undo insertion of a node', function() {
     cy.startApplication();
-    cy.clearAndRender('digraph {Alice -> Bob}');
+    cy.clearAndRenderDotSource('digraph {Alice -> Bob}');
 
     cy.node(1).should('exist');
     cy.node(2).should('exist');
@@ -50,7 +50,7 @@ describe('Undo and redo of last DOT source change', function() {
 
   it.only('Redo undone insertion of a node', function() {
     cy.startApplication();
-    cy.clearAndRender('digraph {Alice -> Bob}');
+    cy.clearAndRenderDotSource('digraph {Alice -> Bob}');
 
     cy.node(1).should('exist');
     cy.node(2).should('exist');
