@@ -27,6 +27,10 @@ Cypress.Commands.add("menuButton", () => {
   return cy.get('#toolbar').find('#menu');
 });
 
+Cypress.Commands.add("mainMenu", () => {
+  return cy.get('#main-menu');
+});
+
 Cypress.Commands.add("menuItemRename", () => {
   return cy.menuButton().find('#rename');
 });
