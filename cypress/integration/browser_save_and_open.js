@@ -262,15 +262,7 @@ describe('Browser save and open', function() {
 
     cy.savedGraphs().should('have.length', 0);
 
-    cy.node(1).should('not.exist');
-    cy.node(2).should('not.exist');
-    cy.node(3).should('not.exist');
-    cy.edge(1).should('not.exist');
-    cy.edge(2).should('not.exist');
-
-    cy.nodes().should('have.length', 0);
-    cy.edges().should('have.length', 0);
-
+    cy.canvasSvg().should('not.exist');
   })
 
   it('The graph is renamed in browser local storage through the menu item Rename', function() {
