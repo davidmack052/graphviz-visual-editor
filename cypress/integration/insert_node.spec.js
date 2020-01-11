@@ -361,9 +361,6 @@ describe('Insertion of nodes into the graph', function() {
 
       cy.style(style).click();
     });
-
-
-
   })
 
 })
