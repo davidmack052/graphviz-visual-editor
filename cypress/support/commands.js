@@ -171,7 +171,7 @@ Cypress.Commands.add("styles", (styleName) => {
 });
 
 Cypress.Commands.add("style", (styleName) => {
-  return cy.get('#format-drawer #styles #' + styleName);
+  return cy.styles().find('#' + styleName);
 });
 
 Cypress.Commands.add("zoomInButton", () => {
