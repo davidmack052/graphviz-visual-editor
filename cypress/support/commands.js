@@ -162,6 +162,10 @@ Cypress.Commands.add("nodeShapeCategory", (nodeShapeCategoryName) => {
   return cy.insertPanels().contains(nodeShapeCategoryName);
 });
 
+Cypress.Commands.add("nodeShape", (nodeShapeName) => {
+  return cy.insertPanels().contains(nodeShapeName);
+});
+
 Cypress.Commands.add("styleSwitch", () => {
   return cy.get('#format-drawer #style-switch');
 });
