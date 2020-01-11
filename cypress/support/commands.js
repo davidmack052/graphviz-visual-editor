@@ -166,6 +166,10 @@ Cypress.Commands.add("styleSwitch", () => {
   return cy.get('#format-drawer #style-switch');
 });
 
+Cypress.Commands.add("styles", (styleName) => {
+  return cy.get('#format-drawer #styles');
+});
+
 Cypress.Commands.add("style", (styleName) => {
   return cy.get('#format-drawer #styles #' + styleName);
 });
