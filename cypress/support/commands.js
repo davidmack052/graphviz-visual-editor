@@ -32,7 +32,7 @@ Cypress.Commands.add("mainMenu", () => {
 });
 
 Cypress.Commands.add("menuItemRename", () => {
-  return cy.menuButton().find('#rename');
+  return cy.mainMenu().find('#rename');
 });
 
 Cypress.Commands.add("replaceGraphDialog", () => {
