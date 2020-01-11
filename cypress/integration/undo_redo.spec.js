@@ -48,7 +48,7 @@ describe('Undo and redo of last DOT source change', function() {
     cy.edges().should('have.length', 1);
   })
 
-  it.only('Redo undone insertion of a node', function() {
+  it('Redo undone insertion of a node', function() {
     cy.startApplication();
     cy.clearAndRenderDotSource('digraph {Alice -> Bob}');
 
