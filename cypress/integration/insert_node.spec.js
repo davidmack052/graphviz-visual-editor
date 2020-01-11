@@ -223,7 +223,7 @@ describe('Insertion of nodes into the graph', function() {
     cy.edges().should('have.length', 0);
   })
 
-  it.only('Default node style is seleced from one of the styles in the node format drawer', function() {
+  it('Default node style is seleced from one of the styles in the node format drawer', function() {
     cy.startApplication();
     cy.settingsButton().click();
     cy.fitSwitch().click();
