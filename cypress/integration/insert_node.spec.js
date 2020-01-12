@@ -666,10 +666,6 @@ describe('Insertion of nodes into the graph', function() {
 
   it('Default node color is seleced from the color picker in the node format drawer', function() {
     cy.startApplication();
-    cy.settingsButton().click();
-    cy.fitSwitch().click();
-    cy.transitionDuration().type('{backspace}0.1');
-    cy.get('body').type('{esc}', { release: false });
     cy.clearAndRenderDotSource('digraph {}');
 
     cy.nodes().should('have.length', 0);
@@ -696,6 +692,12 @@ describe('Insertion of nodes into the graph', function() {
       'bottomRight',
     ];
 
+    const horizontalPositions = [
+      'left',
+      'center',
+      'right',
+    ];
+
     const saturations = {
       'topLeft': '#fffdfd',
       'top': '#ff8080',
@@ -706,6 +708,12 @@ describe('Insertion of nodes into the graph', function() {
       'bottomLeft': '#050505',
       'bottom': '#050202',
       'bottomRight': '#050000',
+    };
+
+    const hues = {
+      'left': '#ff0202',
+      'center': '#02fffb',
+      'right': '#ff0215',
     };
 
     cy.colorSwitch().click();
@@ -729,6 +737,27 @@ describe('Insertion of nodes into the graph', function() {
       cy.node(nodeIndex).find('ellipse').should('have.attr', 'fill', 'none');
     });
 
+    cy.colorPickerSwatch().click();
+    cy.colorPickerSaturation().click('topRight', {force: true});
+
+    horizontalPositions.forEach(position => {
+      const color = hues[position];
+      cy.colorPickerSwatch().click();
+      cy.colorPicker().should('exist');
+
+      cy.colorPickerHue().click(position, {force: true});
+
+      cy.nodeShape('ellipse').click({force: true});
+      nodeIndex += 1;
+      cy.waitForTransition();
+
+      cy.node(nodeIndex).should('exist');
+      cy.node(nodeIndex).shouldHaveName('n' + (nodeIndex - 1));
+
+      cy.node(nodeIndex).find('ellipse').should('have.length', 1);
+      cy.node(nodeIndex).find('ellipse').should('have.attr', 'stroke', color);
+      cy.node(nodeIndex).find('ellipse').should('have.attr', 'fill', 'none');
+    });
   })
 
 })

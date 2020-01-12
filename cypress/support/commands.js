@@ -206,6 +206,10 @@ Cypress.Commands.add("colorPickerSaturation", () => {
   return cy.colorPicker().find('.saturation-white');
 });
 
+Cypress.Commands.add("colorPickerHue", () => {
+  return cy.colorPicker().find('.hue-horizontal');
+});
+
 Cypress.Commands.add("zoomInButton", () => {
   return cy.get('#toolbar').find('#zoom-in');
 });
