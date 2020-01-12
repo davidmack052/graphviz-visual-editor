@@ -664,7 +664,7 @@ describe('Insertion of nodes into the graph', function() {
     });
   })
 
-  it.only('Default node color is seleced from the color picker in the node format drawer', function() {
+  it('Default node color is seleced from the color picker in the node format drawer', function() {
     cy.startApplication();
     cy.settingsButton().click();
     cy.fitSwitch().click();
