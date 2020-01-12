@@ -118,7 +118,7 @@ class TextEditor extends React.Component {
           onLoad={this.handleLoad}
           onFocus={this.props.onFocus}
           onBlur={this.props.onBlur}
-          name="UNIQUE_ID_OF_DIV"
+          name="text-editor"
           value={this.props.dotSrc}
           // viewport height - app bar - 2 * padding
           height="calc(100vh - 64px - 2 * 12px)"
