@@ -190,6 +190,22 @@ Cypress.Commands.add("style", (styleName) => {
   return cy.styles().find('#' + styleName);
 });
 
+Cypress.Commands.add("colorSwitch", () => {
+  return cy.formatDrawer().find('#color-switch');
+});
+
+Cypress.Commands.add("colorPickerSwatch", () => {
+  return cy.formatDrawer().find('#color-picker-swatch');
+});
+
+Cypress.Commands.add("colorPicker", () => {
+  return cy.formatDrawer().find('#color-picker-popover > div.chrome-picker');
+});
+
+Cypress.Commands.add("colorPickerSaturation", () => {
+  return cy.colorPicker().find('.saturation-white');
+});
+
 Cypress.Commands.add("zoomInButton", () => {
   return cy.get('#toolbar').find('#zoom-in');
 });

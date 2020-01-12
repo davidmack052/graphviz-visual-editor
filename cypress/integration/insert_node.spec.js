@@ -664,4 +664,71 @@ describe('Insertion of nodes into the graph', function() {
     });
   })
 
+  it.only('Default node color is seleced from the color picker in the node format drawer', function() {
+    cy.startApplication();
+    cy.settingsButton().click();
+    cy.fitSwitch().click();
+    cy.transitionDuration().type('{backspace}0.1');
+    cy.get('body').type('{esc}', { release: false });
+    cy.clearAndRenderDotSource('digraph {}');
+
+    cy.nodes().should('have.length', 0);
+    cy.edges().should('have.length', 0);
+
+    cy.textEditorContent().should('have.text', 'digraph {}');
+
+    cy.toolbarButton('Insert').click();
+    cy.nodeShapeCategory('Basic shapes').click()
+
+    cy.toolbarButton('Node format').click();
+
+    let nodeIndex = 0;
+
+    const positions = [
+      'topLeft',
+      'top',
+      'topRight',
+      'left',
+      'center',
+      'right',
+      'bottomLeft',
+      'bottom',
+      'bottomRight',
+    ];
+
+    const saturations = {
+      'topLeft': '#fffdfd',
+      'top': '#ff8080',
+      'topRight': '#ff0202',
+      'left': '#828282',
+      'center': '#824242',
+      'right': '#820101',
+      'bottomLeft': '#050505',
+      'bottom': '#050202',
+      'bottomRight': '#050000',
+    };
+
+    cy.colorSwitch().click();
+
+    positions.forEach(position => {
+      const color = saturations[position];
+      cy.colorPickerSwatch().click();
+      cy.colorPicker().should('exist');
+
+      cy.colorPickerSaturation().click(position, {force: true});
+
+      cy.nodeShape('ellipse').click({force: true});
+      nodeIndex += 1;
+      cy.waitForTransition();
+
+      cy.node(nodeIndex).should('exist');
+      cy.node(nodeIndex).shouldHaveName('n' + (nodeIndex - 1));
+
+      cy.node(nodeIndex).find('ellipse').should('have.length', 1);
+      cy.node(nodeIndex).find('ellipse').should('have.attr', 'stroke', color);
+      cy.node(nodeIndex).find('ellipse').should('have.attr', 'fill', 'none');
+    });
+
+  })
+
 })

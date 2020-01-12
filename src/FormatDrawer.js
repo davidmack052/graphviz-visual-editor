@@ -241,6 +241,7 @@ class FormatDrawer extends React.Component {
                 className={classes.colorSwitch}
                 control={
                   <Switch
+                    id="color-switch"
                     checked={this.props.defaultAttributes.color != null}
                     onChange={this.handleColorSwitchChange}
                   />
