@@ -419,7 +419,6 @@ describe('Insertion of nodes into the graph', function() {
           cy.node(nodeIndex).find('polygon').should('not.have.attr', 'stroke-width');
           cy.node(nodeIndex).find('polygon').should('have.attr', 'fill', 'none');
           cy.node(nodeIndex).find('polyline').should('have.length', 0);
-          cy.node(nodeIndex).find('polyline').should('have.length', 0);
           break;
         case 'dotted':
           cy.node(nodeIndex).find('polygon').should('have.length', 1);
