@@ -179,7 +179,7 @@ Cypress.Commands.add("formatDrawer", () => {
 });
 
 Cypress.Commands.add("styleSwitch", () => {
-  return cy.get('#format-drawer #style-switch');
+  return cy.formatDrawer().find('#style-switch');
 });
 
 Cypress.Commands.add("styles", (styleName) => {
