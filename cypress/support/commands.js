@@ -3,6 +3,14 @@ Cypress.Commands.add("startApplication", (options) => {
   cy.checkDefaultGraph();
 });
 
+Cypress.Commands.add("textEditor", () => {
+  return cy.get('#text-editor');
+});
+
+Cypress.Commands.add("textEditorContent", () => {
+  return cy.textEditor().find('.ace_content');
+});
+
 Cypress.Commands.add("canvas", () => {
   return cy.get('#canvas');
 });
