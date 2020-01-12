@@ -552,7 +552,6 @@ describe('Insertion of nodes into the graph', function() {
     let numberOfVisibleNodes = 0;
     styles.forEach((style, i) => {
       const nodeIndex = i + 1;
-      console.log(style);
       cy.style(style).click();
 
       cy.nodeShape('box').click({force: true});
