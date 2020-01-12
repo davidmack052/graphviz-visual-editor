@@ -210,6 +210,10 @@ Cypress.Commands.add("colorPickerHue", () => {
   return cy.colorPicker().find('.hue-horizontal');
 });
 
+Cypress.Commands.add("colorPickerOpacity", () => {
+  return cy.colorPickerHue().parent().parent().parent().find('> div').eq(1).find(' > div > div').eq(2);
+});
+
 Cypress.Commands.add("zoomInButton", () => {
   return cy.get('#toolbar').find('#zoom-in');
 });

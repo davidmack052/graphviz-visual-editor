@@ -699,21 +699,27 @@ describe('Insertion of nodes into the graph', function() {
     ];
 
     const saturations = {
-      'topLeft': '#fffdfd',
-      'top': '#ff8080',
-      'topRight': '#ff0202',
-      'left': '#828282',
-      'center': '#824242',
-      'right': '#820101',
+      'topLeft': '#fefcfc',
+      'top': '#fe8080',
+      'topRight': '#fe0202',
+      'left': '#807f7f',
+      'center': '#804040',
+      'right': '#800101',
       'bottomLeft': '#050505',
       'bottom': '#050202',
       'bottomRight': '#050000',
     };
 
     const hues = {
-      'left': '#ff0202',
-      'center': '#02fffb',
-      'right': '#ff0215',
+      'left': '#fe0202',
+      'center': '#02fefa',
+      'right': '#fe0214',
+    };
+
+    const opacities = {
+      'left': 0,
+      'center': '0.501961',
+      'right': '0.988235',
     };
 
     cy.colorSwitch().click();
@@ -721,8 +727,6 @@ describe('Insertion of nodes into the graph', function() {
     positions.forEach(position => {
       const color = saturations[position];
       cy.colorPickerSwatch().click();
-      cy.colorPicker().should('exist');
-
       cy.colorPickerSaturation().click(position, {force: true});
 
       cy.nodeShape('ellipse').click({force: true});
@@ -734,6 +738,7 @@ describe('Insertion of nodes into the graph', function() {
 
       cy.node(nodeIndex).find('ellipse').should('have.length', 1);
       cy.node(nodeIndex).find('ellipse').should('have.attr', 'stroke', color);
+      cy.node(nodeIndex).find('ellipse').should('not.have.attr', 'stroke-opacity');
       cy.node(nodeIndex).find('ellipse').should('have.attr', 'fill', 'none');
     });
 
@@ -743,8 +748,6 @@ describe('Insertion of nodes into the graph', function() {
     horizontalPositions.forEach(position => {
       const color = hues[position];
       cy.colorPickerSwatch().click();
-      cy.colorPicker().should('exist');
-
       cy.colorPickerHue().click(position, {force: true});
 
       cy.nodeShape('ellipse').click({force: true});
@@ -756,8 +759,41 @@ describe('Insertion of nodes into the graph', function() {
 
       cy.node(nodeIndex).find('ellipse').should('have.length', 1);
       cy.node(nodeIndex).find('ellipse').should('have.attr', 'stroke', color);
+      cy.node(nodeIndex).find('ellipse').should('not.have.attr', 'stroke-opacity');
       cy.node(nodeIndex).find('ellipse').should('have.attr', 'fill', 'none');
     });
+
+    cy.colorPickerSwatch().click();
+    cy.colorPickerHue().click('left', {force: true});
+
+    horizontalPositions.forEach(position => {
+      let color;
+      let opacity;
+      if (position == 'left') {
+        color = 'transparent';
+        opacity = null;
+      } else {
+        color = saturations['topRight'];
+        opacity = opacities[position];
+      }
+      cy.colorPickerSwatch().click();
+      cy.colorPickerOpacity().click(position, {force: true});
+
+      cy.nodeShape('ellipse').click({force: true});
+      nodeIndex += 1;
+      cy.waitForTransition();
+
+      cy.node(nodeIndex).should('exist');
+      cy.node(nodeIndex).shouldHaveName('n' + (nodeIndex - 1));
+
+      cy.node(nodeIndex).find('ellipse').should('have.length', 1);
+      cy.node(nodeIndex).find('ellipse').should('have.attr', 'stroke', color);
+      if (opacity) {
+        cy.node(nodeIndex).find('ellipse').should('have.attr', 'stroke-opacity', opacity);
+      }
+      cy.node(nodeIndex).find('ellipse').should('have.attr', 'fill', 'none');
+    });
+
   })
 
 })
