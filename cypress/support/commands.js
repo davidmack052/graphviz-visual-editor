@@ -199,7 +199,7 @@ Cypress.Commands.add("colorPickerSwatch", () => {
 });
 
 Cypress.Commands.add("colorPicker", () => {
-  return cy.formatDrawer().find('#color-picker-popover > div.chrome-picker');
+  return cy.formatDrawer().find('#color-picker-popover > .chrome-picker');
 });
 
 Cypress.Commands.add("colorPickerSaturation", () => {
