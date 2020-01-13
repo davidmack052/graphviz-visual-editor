@@ -699,7 +699,7 @@ describe('Insertion of nodes into the graph', function() {
     ];
 
     const saturations = {
-      'topLeft': '#fefcfc',
+      'topLeft': '#ffffff',
       'top': '#fe8080',
       'topRight': '#fe0202',
       'left': '#807f7f',
