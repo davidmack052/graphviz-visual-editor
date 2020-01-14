@@ -711,9 +711,9 @@ describe('Insertion of nodes into the graph', function() {
     };
 
     const hues = {
-      'left': '#fe0202',
-      'center': '#02fefa',
-      'right': '#fe0214',
+      'left': '#ff0101',
+      'center': '#01fffa',
+      'right': '#ff010a',
     };
 
     const opacities = {
