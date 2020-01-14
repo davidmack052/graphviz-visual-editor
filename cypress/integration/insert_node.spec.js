@@ -700,14 +700,14 @@ describe('Insertion of nodes into the graph', function() {
 
     const saturations = {
       'topLeft': '#ffffff',
-      'top': '#fe8080',
-      'topRight': '#fe0202',
-      'left': '#807f7f',
-      'center': '#804040',
-      'right': '#800101',
-      'bottomLeft': '#050505',
-      'bottom': '#050202',
-      'bottomRight': '#050000',
+      'top': '#ff8080',
+      'topRight': '#ff0101',
+      'left': '#818181',
+      'center': '#814141',
+      'right': '#810101',
+      'bottomLeft': '#040404',
+      'bottom': '#040202',
+      'bottomRight': '#040000',
     };
 
     const hues = {
