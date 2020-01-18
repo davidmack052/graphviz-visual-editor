@@ -199,7 +199,7 @@ Cypress.Commands.add("colorPickerForm", () => {
 });
 
 Cypress.Commands.add("colorSwitch", () => {
-  return cy.formatDrawer().find('#color-switch');
+  return cy.colorPickerForm().find('#color-switch');
 });
 
 Cypress.Commands.add("colorPickerSwatch", () => {
