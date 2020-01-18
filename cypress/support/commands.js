@@ -203,7 +203,7 @@ Cypress.Commands.add("colorSwitch", () => {
 });
 
 Cypress.Commands.add("colorPickerSwatch", () => {
-  return cy.formatDrawer().find('#color-picker-swatch');
+  return cy.colorPickerForm().find('#color-picker-swatch');
 });
 
 Cypress.Commands.add("colorPicker", () => {
