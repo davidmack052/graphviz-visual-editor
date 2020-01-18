@@ -847,7 +847,6 @@ describe('Insertion of nodes into the graph', function() {
         } else {
           expect(ellipse).to.not.have.attr('stroke-opacity');
         }
-        expect(ellipse).to.have.attr('fill', 'none');
       });
     }
 
