@@ -194,6 +194,10 @@ Cypress.Commands.add("style", (styleName) => {
   return cy.styles().find('#' + styleName);
 });
 
+Cypress.Commands.add("colorPickerForm", () => {
+  return cy.formatDrawer().find('#color-picker-form');
+});
+
 Cypress.Commands.add("colorSwitch", () => {
   return cy.formatDrawer().find('#color-switch');
 });
