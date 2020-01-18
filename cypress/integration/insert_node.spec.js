@@ -759,7 +759,6 @@ describe('Insertion of nodes into the graph', function() {
       cy.node(nodeIndex).find('ellipse').then(ellipse => {
         expect(ellipse).to.have.length(1);
         expect(ellipse).to.have.attr('stroke');
-        expect(ellipse).to.not.have.attr('stroke-opacity');
         expect(ellipse).to.have.attr('fill', 'none');
         const {x, y} = positions[positionName];
         const expectedStrokeColor = rgbToHex(y * 255, (1 - x) * y * 255, (1 - x) * y * 255);
