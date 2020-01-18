@@ -760,6 +760,8 @@ describe('Insertion of nodes into the graph', function() {
         expect(ellipse).to.have.length(1);
         expect(ellipse).to.have.attr('stroke');
         expect(ellipse).to.have.attr('fill', 'none');
+        expect(ellipse).to.not.have.attr('stroke-opacity');
+        expect(ellipse).to.not.have.attr('fill-opacity');
         const {x, y} = positions[positionName];
         const expectedStrokeColor = rgbToHex(y * 255, (1 - x) * y * 255, (1 - x) * y * 255);
         const actualStrokeColor = ellipse.attr('stroke').replace('#', '');
