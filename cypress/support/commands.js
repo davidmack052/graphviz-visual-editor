@@ -2,6 +2,11 @@ Cypress.Commands.add("startApplication", (options) => {
   cy.visit('http://localhost:3000/', options);
 });
 
+Cypress.Commands.add("startCleanApplication", (options) => {
+  localStorage.setItem('dotSrc', 'digraph {}');
+  cy.visit('http://localhost:3000/', options);
+});
+
 Cypress.Commands.add("textEditor", () => {
   return cy.get('#text-editor');
 });
